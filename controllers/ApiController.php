@@ -3,10 +3,6 @@
 namespace app\controllers;
 
 use app\models\Users;
-//use App\Repository\UsersRepository;
-//use Symfony\Component\HttpFoundation\Request;
-//use Symfony\Component\HttpFoundation\Response;
-
 use yii\rest\Controller;
 
 class ApiController extends Controller
