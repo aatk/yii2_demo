@@ -71,5 +71,12 @@ class Users extends ActiveRecord
         $count = (new Query())->select('COUNT(*)')->from('users')->count();
         return $count;
     }
+
+    public function findByText($find, $id, $limit)
+    {
+        $sql = 'SELECT * FROM users WHERE id>=:id AND MATCH(`firstname`, `secondname`, `surname`) AGAINST( :searchtext IN BOOLEAN MODE) LIMIT :limit';
+        $Users = Users::findBySql($sql, [':id' => $id, ':searchtext' => '*'.$find.'*', ':limit' => (int)$limit])->all();
+        return $Users;
+    }
     
 }

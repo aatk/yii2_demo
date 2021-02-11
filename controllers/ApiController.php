@@ -111,15 +111,14 @@ class ApiController extends Controller
         $find  = $this->request->get("find");
         $id    = $this->request->get("id");
         $limit = $this->request->get("limit");
+    
+        //@Get("/api/search/{find}/{id}/{limit}")
 
-//        //@Get("/api/search/{find}/{id}/{limit}")
-//        $usersRepository = new UsersRepository($this->getDoctrine());
-//        $findresult      = $usersRepository->findByText($find, $id, $limit);
-//        $result          = $this->json($findresult);
-//
-//        return $result;
-        $res = [ "find" => $find, $limit => $id ];
-        return $this->asJson($res);
+        $usersRepository = new Users();
+        $findresult      = $usersRepository->findByText($find, $id, $limit);
+        $result          = $this->asJson($findresult);
+
+        return $result;
     }
 
     private function saveUsers($json)
