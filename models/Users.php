@@ -7,11 +7,6 @@ use yii\db\Query;
 
 class Users extends ActiveRecord
 {
-//    public $id = null;
-//    public $firstname = "";
-//    public $secondname = "";
-//    public $surname = "";
-    
     const STATUS_INACTIVE = 0;
     const STATUS_ACTIVE = 1;
     
